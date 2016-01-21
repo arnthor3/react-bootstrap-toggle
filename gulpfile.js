@@ -4,20 +4,21 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var browserify = require('browserify');
 var watchify = require('watchify');
+var uglify = require('gulp-uglify');
 var babel = require('babelify');
 var path = require('path');
 var less = require('gulp-less');
 
 function compile(watch) {
   var bundler = watchify(
-                  browserify('./src/react-bootstrap-switcher.js', { debug: true })
+                  browserify('./src/react-bootstrap-toggle.js', { debug: true })
                   .transform(babel.configure({presets: ["es2015", "react"]}))
                 );
 
   function rebundle() {
     bundler.bundle()
       .on('error', function(err) { console.error(err); this.emit('end'); })
-      .pipe(source('app.js'))
+      .pipe(source('react-bootstrap-toggle.js'))
       .pipe(buffer())
       .pipe(sourcemaps.init({ loadMaps: true }))
       .pipe(sourcemaps.write('./'))
