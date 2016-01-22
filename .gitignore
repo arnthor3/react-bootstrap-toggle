@@ -1,4 +1,5 @@
 dist/
+src/
 node_modules/
 index.html
 .npmignore
