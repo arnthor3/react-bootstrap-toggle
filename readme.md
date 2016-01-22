@@ -1,10 +1,10 @@
- React-Bootstrap-Toggle
+## React-Bootstrap-Toggle
 
 This is a react component of the http://www.bootstraptoggle.com/ project.
 
-You need to include the of course bootstrap and also the bootstrap2-toggle in your component.
+You need to include the bootstrap css file and also the bootstrap2-toggle css file in your app.
 
-If you are using the npm version then like this.
+If you are using the npm version then something like this will work fine.
 
 ```sh
 <link rel="stylesheet" href="dist/bootstrap2-toggle.css">
@@ -36,4 +36,3 @@ Defaults to true
 Invoked when the component state changes.
 
 
-  
