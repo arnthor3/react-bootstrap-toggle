@@ -9,7 +9,7 @@ export default class ReactBootstrapSwitcher extends React.Component {
   }
 
   onClick() {
-    this.props.onClick && this.props.onClick(!this.state.active);
+    this.props.onChange && this.props.onChange(!this.state.active);
     this.setState({active : !this.state.active});
   }
 
@@ -19,12 +19,6 @@ export default class ReactBootstrapSwitcher extends React.Component {
     let inactiveClass = 'toggle btn off ' + this.props.labelTwoClass;
     let labelOneClass = 'btn toggle-on ' + this.props.labelOneClass;
     let labelTwoClass = 'btn toggle-off ' + this.props.labelTwoClass;
-    
-    if (this.state.active) {
-      labelOneClass += ' active';
-    } else {
-      labelTwoClass += ' active';
-    }
     
     let style = {
       width  : this.props.width,
