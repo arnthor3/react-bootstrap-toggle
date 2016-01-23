@@ -1,5 +1,6 @@
 dist/
-src/
+lib/
 node_modules/
 index.html
 .npmignore
+

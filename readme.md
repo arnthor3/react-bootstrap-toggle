@@ -19,10 +19,10 @@ npm install react-bootstrap-toggle --save
 ## Props
 
 ### width
-Defaults to a 100 px sidth
+Defaults to a 100 px width
 
 ### height
-Default to 35 
+Default to 35 px width
 
 ### options
 Defaults to ['Yes', 'No']

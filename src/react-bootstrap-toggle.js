@@ -15,8 +15,9 @@ export default class ReactBootstrapSwitcher extends React.Component {
 
   render() {
 
-    let activeClass = 'toggle btn ' + this.props.labelOneClass;
-    let inactiveClass = 'toggle btn off ' + this.props.labelTwoClass;
+    let activeClass = 'toggle btn';
+    let inactiveClass = 'toggle btn btn-primary off ';
+    
     let labelOneClass = 'btn toggle-on ' + this.props.labelOneClass;
     let labelTwoClass = 'btn toggle-off ' + this.props.labelTwoClass;
     
@@ -38,13 +39,20 @@ export default class ReactBootstrapSwitcher extends React.Component {
   }
 }
 
-ReactBootstrapSwitcher.propTypes = { 
+ReactBootstrapSwitcher.propTypes = {
+    // Holds the className for label one 
     labelOneClass : React.PropTypes.string,
+    // Holds the className for label two
     labelTwoClass : React.PropTypes.string,
+    // Height prop
     height        : React.PropTypes.string,
+    // Width prop
     width         : React.PropTypes.string,
+    // an array that holds the options Example : ['yes', 'no']
     options       : React.PropTypes.array,
+    // The initial state of the component
     active        : React.PropTypes.bool,
+    // The onChange event, returns the state as the argument
     onChange      : React.PropTypes.func
 
 };
