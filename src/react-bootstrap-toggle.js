@@ -9,6 +9,7 @@ export default class ReactBootstrapSwitcher extends React.Component {
   }
 
   onClick() {
+    if(this.props.disabled) return;
     this.props.onChange && this.props.onChange(!this.state.active);
     this.setState({active : !this.state.active});
   }
@@ -30,9 +31,9 @@ export default class ReactBootstrapSwitcher extends React.Component {
         <div ref='switcher' className={this.state.active ? activeClass : inactiveClass} 
             onClick={this.onClick.bind(this)} style={style}>
           <div className="toggle-group">
-            <label className={labelOneClass}>{this.props.options[0]}</label>
-            <label className={labelTwoClass}>{this.props.options[1]}</label>
-            <span className="toggle-handle btn btn-default"></span>
+            <label disabled={this.props.disabled} className={labelOneClass}>{this.props.options[0]}</label>
+            <label disabled={this.props.disabled} className={labelTwoClass}>{this.props.options[1]}</label>
+            <span  disabled={this.props.disabled} className="toggle-handle btn btn-default"></span>
           </div>
         </div>
     );
@@ -53,7 +54,9 @@ ReactBootstrapSwitcher.propTypes = {
     // The initial state of the component
     active        : React.PropTypes.bool,
     // The onChange event, returns the state as the argument
-    onChange      : React.PropTypes.func
+    onChange      : React.PropTypes.func,
+    // Sets the button to disabled
+    disabled      : React.PropTypes.bool
 
 };
 
@@ -63,9 +66,7 @@ ReactBootstrapSwitcher.defaultProps = {
     width         : '100',
     height        : '35',
     options       : ['Yes', 'No'],
-    active        : true
+    active        : true,
+    disabled      : false
 
 }
-
-
-

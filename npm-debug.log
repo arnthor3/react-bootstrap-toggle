@@ -1,0 +1,119 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/5.1.0/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.3.12
+3 info using node@v5.1.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/arnthoragustsson/Development/components/react-switcher',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/arnthoragustsson/.npm/react-bootstrap-toggle/1.0.176/package.tgz not in flight; packing
+9 info lifecycle react-bootstrap-toggle@1.0.176~prepublish: react-bootstrap-toggle@1.0.176
+10 verbose lifecycle react-bootstrap-toggle@1.0.176~prepublish: unsafe-perm in lifecycle true
+11 verbose lifecycle react-bootstrap-toggle@1.0.176~prepublish: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/arnthoragustsson/Development/components/react-switcher/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+12 verbose lifecycle react-bootstrap-toggle@1.0.176~prepublish: CWD: /Users/arnthoragustsson/Development/components/react-switcher
+13 silly lifecycle react-bootstrap-toggle@1.0.176~prepublish: Args: [ '-c', 'npm run compile' ]
+14 silly lifecycle react-bootstrap-toggle@1.0.176~prepublish: Returned: code: 0  signal: null
+15 verbose tar pack [ '/Users/arnthoragustsson/.npm/react-bootstrap-toggle/1.0.176/package.tgz',
+15 verbose tar pack   '/Users/arnthoragustsson/Development/components/react-switcher' ]
+16 verbose tarball /Users/arnthoragustsson/.npm/react-bootstrap-toggle/1.0.176/package.tgz
+17 verbose folder /Users/arnthoragustsson/Development/components/react-switcher
+18 verbose addLocalTarball adding from inside cache /Users/arnthoragustsson/.npm/react-bootstrap-toggle/1.0.176/package.tgz
+19 silly cache afterAdd react-bootstrap-toggle@1.0.176
+20 verbose afterAdd /Users/arnthoragustsson/.npm/react-bootstrap-toggle/1.0.176/package/package.json not in flight; writing
+21 verbose afterAdd /Users/arnthoragustsson/.npm/react-bootstrap-toggle/1.0.176/package/package.json written
+22 silly publish { name: 'react-bootstrap-toggle',
+22 silly publish   version: '1.0.176',
+22 silly publish   description: 'A React version of the bootstrap-toggle without the JQuery dependency',
+22 silly publish   main: './lib/react-bootstrap-toggle.js',
+22 silly publish   repository:
+22 silly publish    { type: 'git',
+22 silly publish      url: 'git+https://github.com/arnthor3/react-bootstrap-toggle.git' },
+22 silly publish   scripts:
+22 silly publish    { compile: 'babel --presets es2015,react -d lib/ src/',
+22 silly publish      prepublish: 'npm run compile' },
+22 silly publish   keywords: [ 'react bootstrap bootstrap-switcher' ],
+22 silly publish   author: { name: 'arnthor' },
+22 silly publish   license: 'ISC',
+22 silly publish   peerDependencies: { react: '^0.14.6', 'react-dom': '^0.14.6' },
+22 silly publish   devDependencies:
+22 silly publish    { babel: '^6.3.26',
+22 silly publish      'babel-cli': '^6.4.5',
+22 silly publish      'babel-preset-es2015': '^6.3.13',
+22 silly publish      'babel-preset-react': '^6.3.13',
+22 silly publish      babelify: '^7.2.0',
+22 silly publish      browserify: '^13.0.0',
+22 silly publish      gulp: '^3.9.0',
+22 silly publish      'gulp-less': '^3.0.5',
+22 silly publish      'gulp-sourcemaps': '^1.6.0',
+22 silly publish      'gulp-uglify': '^1.5.1',
+22 silly publish      react: '^0.14.6',
+22 silly publish      'react-dom': '^0.14.6',
+22 silly publish      'vinyl-buffer': '^1.0.0',
+22 silly publish      'vinyl-source-stream': '^1.1.0',
+22 silly publish      watchify: '^3.7.0' },
+22 silly publish   readme: '## React-Bootstrap-Toggle\n\nThis is a react component of the http://www.bootstraptoggle.com/ project.\n\nYou need to include the bootstrap css file and also the bootstrap2-toggle css file in your app.\n\nIf you are using the npm version then you can include it from the module like this.\n\n```sh\n<link rel="stylesheet" href="node_modules/lib/bootstrap2-toggle.css">\n```\n\nOr you could import it to your SASS or LESS build.\n\n```sh\n@import "node_modules/lib/bootstrap2-toggle.css";\n```\n\n## NPM\n\n```sh\nnpm install react-bootstrap-toggle --save\n```\n\n## Props\n\n### width\nDefaults to a 100 px width\n\n### height\nDefault to 35 px width\n\n### options\nDefaults to [\'Yes\', \'No\']\n\n### active\nDefaults to true\n\n### disabled\nDefaults to false\n\n### onChange\nInvoked when the component state changes.\n\n\n',
+22 silly publish   readmeFilename: 'readme.md',
+22 silly publish   gitHead: '87ae8596e18774d69fc9220073bd67f48602828a',
+22 silly publish   bugs: { url: 'https://github.com/arnthor3/react-bootstrap-toggle/issues' },
+22 silly publish   homepage: 'https://github.com/arnthor3/react-bootstrap-toggle#readme',
+22 silly publish   _id: 'react-bootstrap-toggle@1.0.176',
+22 silly publish   _shasum: '5b4a81ccd9fc4c1499c98ad91025acb3b196ae68',
+22 silly publish   _from: '.' }
+23 verbose getPublishConfig undefined
+24 silly mapToRegistry name react-bootstrap-toggle
+25 silly mapToRegistry using default registry
+26 silly mapToRegistry registry https://registry.npmjs.org/
+27 silly mapToRegistry uri https://registry.npmjs.org/react-bootstrap-toggle
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading /Users/arnthoragustsson/.npm/react-bootstrap-toggle/1.0.176/package.tgz
+30 verbose request uri https://registry.npmjs.org/react-bootstrap-toggle
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 9:38:04 PM
+33 verbose request using bearer token for auth
+34 verbose request id 28496a79435ad17d
+35 http request PUT https://registry.npmjs.org/react-bootstrap-toggle
+36 http 403 https://registry.npmjs.org/react-bootstrap-toggle
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '97',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Sat, 23 Jan 2016 20:38:05 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-fra1236-FRA',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1453581484.736758,VS0,VE1117' }
+38 verbose request invalidating /Users/arnthoragustsson/.npm/registry.npmjs.org/react-bootstrap-toggle on PUT
+39 error publish Failed PUT 403
+40 verbose stack Error: "You cannot publish over the previously published version 1.0.176." : react-bootstrap-toggle
+40 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+40 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+40 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+40 verbose stack     at emitTwo (events.js:87:13)
+40 verbose stack     at Request.emit (events.js:172:7)
+40 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1082:10)
+40 verbose stack     at emitOne (events.js:82:20)
+40 verbose stack     at Request.emit (events.js:169:7)
+40 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1009:12)
+41 verbose statusCode 403
+42 verbose pkgid react-bootstrap-toggle
+43 verbose cwd /Users/arnthoragustsson/Development/components/react-switcher
+44 error Darwin 14.5.0
+45 error argv "/usr/local/Cellar/node/5.1.0/bin/node" "/usr/local/bin/npm" "publish"
+46 error node v5.1.0
+47 error npm  v3.3.12
+48 error code E403
+49 error "You cannot publish over the previously published version 1.0.176." : react-bootstrap-toggle
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]

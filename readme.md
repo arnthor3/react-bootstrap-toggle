@@ -10,6 +10,12 @@ If you are using the npm version then you can include it from the module like th
 <link rel="stylesheet" href="node_modules/lib/bootstrap2-toggle.css">
 ```
 
+Or you could import it to your SASS or LESS build.
+
+```sh
+@import "node_modules/lib/bootstrap2-toggle.css";
+```
+
 ## NPM
 
 ```sh
@@ -30,7 +36,8 @@ Defaults to ['Yes', 'No']
 ### active
 Defaults to true
 
-## Events
+### disabled
+Defaults to false
 
 ### onChange
 Invoked when the component state changes.
