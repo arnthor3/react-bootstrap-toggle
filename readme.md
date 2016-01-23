@@ -30,14 +30,26 @@ Defaults to a 100 px width
 ### height
 Default to 35 px width
 
-### options
-Defaults to ['Yes', 'No']
+### on
+Defaults to 'On', takes in any renderable node
+
+### off
+Defaults to 'Off', takes in any renderable node
+
+### onstyle
+Defaults to btn-primary, pass in any class name to change the style
+
+### offstyle
+Defaults to btn-default...
 
 ### active
 Defaults to true
 
 ### disabled
 Defaults to false
+
+### size
+Defaults to the standard size, changes the btn class to btn-lg etc..
 
 ### onChange
 Invoked when the component state changes.
