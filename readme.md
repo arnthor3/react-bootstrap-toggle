@@ -24,20 +24,7 @@ npm install react-bootstrap-toggle --save
 
 ### Props
 
-Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-`, as in `data-on="Enabled"`.
 
-```html
-<input type="checkbox" data-toggle="toggle" data-on="Enabled" data-off="Disabled">
-<input type="checkbox" id="toggle-two">
-<script>
-  $(function() {
-    $('#toggle-two').bootstrapToggle({
-      on: 'Enabled',
-      off: 'Disabled'
-    });
-  })
-</script>
-```
 
 Name|Type|Default|Description|
 ---|---|---|---
