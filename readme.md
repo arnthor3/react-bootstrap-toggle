@@ -22,34 +22,33 @@ Or you could import it to your SASS or LESS build.
 npm install react-bootstrap-toggle --save
 ```
 
-## Props
+### Props
 
-### width
-Defaults to a 100 px width
+Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-`, as in `data-on="Enabled"`.
 
-### height
-Default to 35 px width
+```html
+<input type="checkbox" data-toggle="toggle" data-on="Enabled" data-off="Disabled">
+<input type="checkbox" id="toggle-two">
+<script>
+  $(function() {
+    $('#toggle-two').bootstrapToggle({
+      on: 'Enabled',
+      off: 'Disabled'
+    });
+  })
+</script>
+```
 
-### on
-Defaults to 'On', takes in any renderable node
-
-### off
-Defaults to 'Off', takes in any renderable node
-
-### onstyle
-Defaults to btn-primary, pass in any class name to change the style
-
-### offstyle
-Defaults to btn-default...
-
-### active
-Defaults to true
-
-### disabled
-Defaults to false
-
-### size
-Defaults to the standard size, changes the btn class to btn-lg etc..
+Name|Type|Default|Description|
+---|---|---|---
+on|string/html|"On"|Text of the on toggle
+off|string/html|"Off"|Text of the off toggle
+size|string|"normal"|Size of the toggle. Possible values are `large`, `normal`, `small`, `mini`.
+onstyle|string|"primary"|Style of the on toggle. Possible values are `default`, `primary`, `success`, `info`, `warning`, `danger`
+offstyle|string|"default"|Style of the off toggle. Possible values are `default`, `primary`, `success`, `info`, `warning`, `danger`
+style|string| |Appends the value to the class attribute of the toggle. This can be used to apply custom styles. Refer to Custom Styles for reference.
+width|integer|*null*|Sets the width of the toggle. if set to *null*, width will be calculated.
+height|integer|*null*|Sets the height of the toggle. if set to *null*, height will be calculated.
 
 ### onChange
 Invoked when the component state changes.

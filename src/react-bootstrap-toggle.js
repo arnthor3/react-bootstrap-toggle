@@ -1,11 +1,37 @@
 import React from 'react';
 
+let outerHeight = (el) => {
+  let height = el.scrollHeight;
+  let style = getComputedStyle(el);
+  if (el.childElementCount) {
+    let child = el.childNodes[0];
+    let childeStyle = getComputedStyle(child);
+  }
+  return height + parseInt(style.marginTop) + parseInt(style.marginBottom) 
+  + parseInt(style.paddingTop) + parseInt(style.paddingBottom); 
+
+}
+
+let outerWidth = (el)=> {
+
+  let width = el.scrollWidth;
+  let style = getComputedStyle(el);
+  if (el.childElementCount) {
+    let child = el.childNodes[0];
+    let childeStyle = getComputedStyle(child);
+    width += parseInt(childeStyle.marginLeft) + parseInt(childeStyle.marginRight) 
+      + child.scrollWidth;
+  }
+  return width + parseInt(style.marginLeft) + parseInt(style.marginRight);
+
+}
+
 export default class ReactBootstrapSwitcher extends React.Component {
   
   constructor(props) {
     super(props);
     //set the state to either the prop.active value or default it to true
-    this.state = { active : (typeof props.active !== 'undefined')? props.active : true };
+    this.state = { active : (typeof props.active !== 'undefined')? props.active : true};
   }
 
   onClick() {
@@ -13,6 +39,26 @@ export default class ReactBootstrapSwitcher extends React.Component {
     this.props.onChange && this.props.onChange(!this.state.active);
     this.setState({active : !this.state.active});
   }
+
+  setDimensions() {
+    let on = this.refs.on;
+    window.on = on;
+    let off = this.refs.off;
+    let toggle = this.refs.toggle;
+    let width = Math.max(outerWidth(on), outerWidth(off)) + (outerWidth(toggle) / 1.25);
+    let height = Math.max(outerHeight(on), outerHeight(off));
+    
+    this.setState({width : this.props.width || width, height : this.props.height || height});
+  }
+
+  componentDidMount() {
+    this.setDimensions();
+  }
+
+  componentWillReceiveProps() {
+    this.setDimensions();
+  }
+
 
   getSizeClass() {
     switch(this.props.size) {
@@ -22,38 +68,39 @@ export default class ReactBootstrapSwitcher extends React.Component {
       case 'small':
         return 'btn-sm';
         break;
-      case 'tiny':
+      case 'mini':
         return 'btn-xs';
         break;
       default:
         return '';
-
     }
   }
 
   render() {
+    let onstyle = `btn-${this.props.onstyle}`; 
+    let offstyle = 'btn-' + this.props.offstyle;
     let btn = 'btn';
     let toggleOn = 'toggle-on';
     let toggleOff = 'toggle-off';
     let sizeClass = this.getSizeClass();
-    let activeClass = 'toggle btn ' + sizeClass;
-    let inactiveClass = activeClass + ' off';
+    let activeClass = `${btn} toggle ${sizeClass} ${onstyle}`;
+    let inactiveClass = `${btn} toggle ${sizeClass} ${offstyle} off`;
     
-    let onStyleClass = `${btn} ${toggleOn} ${sizeClass} ${this.props.onstyle}`;
-    let offStyleClass = `${btn} ${toggleOff} ${sizeClass} ${this.props.offstyle}`;
+    let onStyleClass = `${btn} ${toggleOn} ${sizeClass} ${onstyle}`;
+    let offStyleClass = `${btn} ${toggleOff} ${sizeClass} ${offstyle}`;
 
     let style = {
-      width  : this.props.width,
-      height : this.props.height
+      width  : this.state.width,
+      height : this.state.height
     };
 
     return (
-        <div ref='switcher' className={this.state.active ? activeClass : inactiveClass} 
+        <div ref='switcher' disabled={this.props.disabled} className={this.state.active ? activeClass : inactiveClass} 
             onClick={this.onClick.bind(this)} style={style}>
           <div className="toggle-group">
-            <label disabled={this.props.disabled} className={onStyleClass}>{this.props.on}</label>
-            <label disabled={this.props.disabled} className={offStyleClass}>{this.props.off}</label>
-            <span  disabled={this.props.disabled} className="toggle-handle btn btn-default"></span>
+            <label ref='on'  className={onStyleClass}>{this.props.on}</label>
+            <label ref='off'  className={offStyleClass}>{this.props.off}</label>
+            <span  ref='toggle' className="toggle-handle btn btn-default"></span>
           </div>
         </div>
     );
@@ -83,14 +130,17 @@ ReactBootstrapSwitcher.propTypes = {
 };
 
 ReactBootstrapSwitcher.defaultProps = {
-    onstyle     : 'btn-primary',
-    offstyle    : 'btn-default',
-    width       : '100',
-    height      : '35',
+    onstyle     : 'primary',
+    offstyle    : 'default',
+    width       : '',
+    height      : '',
     on          : 'On',
     off         : 'Off',
     disabled    : false,
     size        : 'normal',
     active      : true
 }
+
+
+
 
