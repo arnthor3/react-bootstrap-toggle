@@ -42,7 +42,6 @@ export default class ReactBootstrapSwitcher extends React.Component {
 
   setDimensions() {
     let on = this.refs.on;
-    window.on = on;
     let off = this.refs.off;
     let toggle = this.refs.toggle;
     let width = Math.max(outerWidth(on), outerWidth(off)) + (outerWidth(toggle) / 1.25);
