@@ -21,7 +21,7 @@ function compile(watch) {
       .pipe(source('react-bootstrap-toggle.js'))
       .pipe(buffer())
       .pipe(sourcemaps.init({ loadMaps: true }))
-      .pipe(sourcemaps.write('./'))
+      .pipe(sourcemaps.write('./dist'))
       .pipe(gulp.dest('./dist'));
   }
 

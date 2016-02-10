@@ -1,29 +1,41 @@
 import React from 'react';
 
-let outerHeight = (el) => {
-  let height = el.scrollHeight;
-  let style = getComputedStyle(el);
-  if (el.childElementCount) {
-    let child = el.childNodes[0];
-    let childeStyle = getComputedStyle(child);
-  }
-  return height + parseInt(style.marginTop) + parseInt(style.marginBottom) 
-  + parseInt(style.paddingTop) + parseInt(style.paddingBottom); 
-
+const getStyle = (el, str) => {
+  return parseInt(getComputedStyle(el).getPropertyValue(str), 10);
 }
 
-let outerWidth = (el)=> {
+const getWidth = (el) => {
+  let width = 0
+   var pLeft    = getStyle(el, 'padding-left');
+   var pRight   = getStyle(el,'padding-right');
+   if (el.childElementCount) {
+      
+      let child   = el.childNodes[0];
+      let mLeft   = getStyle(child, 'margin-left');
+      let mRight  = getStyle(child, 'margin-right');
+      let cWidth  = child.scrollWidth;
 
-  let width = el.scrollWidth;
-  let style = getComputedStyle(el);
-  if (el.childElementCount) {
-    let child = el.childNodes[0];
-    let childeStyle = getComputedStyle(child);
-    width += parseInt(childeStyle.marginLeft) + parseInt(childeStyle.marginRight) 
-      + child.scrollWidth;
-  }
-  return width + parseInt(style.marginLeft) + parseInt(style.marginRight);
+      return cWidth + mLeft + mRight + pLeft + pRight; 
+    } 
+    return el.offsetWidth;
+}
 
+const getHeight = (el) => {
+  let height = 0
+   var pTop     = getStyle(el, 'padding-top');
+   var pBottom  = getStyle(el, 'padding-top');
+   let elHeight = 0;
+   if (el.childElementCount) {
+      
+      let child   = el.childNodes[0];
+      let mTop    = getStyle(child, 'margin-top');
+      let mBottom = getStyle(child, 'margin-bottom');
+      let cHeight  = child.offsetHeight;
+      return cHeight + mBottom + mTop + pTop + pBottom; 
+    } 
+    return el.offsetHeight;
+   
+   
 }
 
 export default class ReactBootstrapSwitcher extends React.Component {
@@ -44,9 +56,10 @@ export default class ReactBootstrapSwitcher extends React.Component {
     let on = this.refs.on;
     let off = this.refs.off;
     let toggle = this.refs.toggle;
-    let width = Math.max(outerWidth(on), outerWidth(off)) + (outerWidth(toggle) / 1.25);
-    let height = Math.max(outerHeight(on), outerHeight(off));
-    
+    let width = Math.max(getWidth(on), getWidth(off));
+    console.log(width);
+    let height = Math.max(getHeight(on), getHeight(off)); 
+    console.log(this.refs.switcher.offsetHeight);
     this.setState({width : this.props.width || width, height : this.props.height || height});
   }
 
@@ -54,7 +67,7 @@ export default class ReactBootstrapSwitcher extends React.Component {
     this.setDimensions();
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(p) {
     this.setDimensions();
   }
 
@@ -139,7 +152,5 @@ ReactBootstrapSwitcher.defaultProps = {
     size        : 'normal',
     active      : true
 }
-
-
 
 
