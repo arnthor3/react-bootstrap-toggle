@@ -57,9 +57,7 @@ export default class ReactBootstrapSwitcher extends React.Component {
     let off = this.refs.off;
     let toggle = this.refs.toggle;
     let width = Math.max(getWidth(on), getWidth(off));
-    console.log(width);
     let height = Math.max(getHeight(on), getHeight(off)); 
-    console.log(this.refs.switcher.offsetHeight);
     this.setState({width : this.props.width || width, height : this.props.height || height});
   }
 
