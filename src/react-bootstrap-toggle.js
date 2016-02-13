@@ -1,92 +1,117 @@
 import React from 'react';
 
+
+const PADDING = {
+    RIGHT   : 'padding-right',
+    LEFT    : 'padding-left',
+    TOP     : 'padding-top',
+    BOTTOM  : 'padding-bottom'
+};
+
+const MARGIN = {
+    RIGHT   : 'margin-right',
+    LEFT    : 'margin-left',
+    TOP     : 'margin-top',
+    BOTTOM  : 'margin-bottom'
+};
+
 const getStyle = (el, str) => {
   return parseInt(getComputedStyle(el).getPropertyValue(str), 10);
 }
 
-const getWidth = (el) => {
-  let width = 0
-   var pLeft    = getStyle(el, 'padding-left');
-   var pRight   = getStyle(el,'padding-right');
-   if (el.childElementCount) {
-      
-      let child   = el.childNodes[0];
-      let mLeft   = getStyle(child, 'margin-left');
-      let mRight  = getStyle(child, 'margin-right');
-      let cWidth  = child.scrollWidth;
-
-      return cWidth + mLeft + mRight + pLeft + pRight; 
-    } 
-    return el.offsetWidth;
+const getTextNodeBoundingClientRect = (node) => {
+    node = node.length ? node[node.length - 1] : node;
+    if (document.createRange) {
+        let range = document.createRange();
+        if (range.getBoundingClientRect) {
+            range.selectNodeContents(node);
+            return range.getBoundingClientRect();
+        }
+    }
+    return 0;
 }
 
-const getHeight = (el) => {
-  let height = 0
-   var pTop     = getStyle(el, 'padding-top');
-   var pBottom  = getStyle(el, 'padding-top');
-   let elHeight = 0;
-   if (el.childElementCount) {
-      
-      let child   = el.childNodes[0];
-      let mTop    = getStyle(child, 'margin-top');
-      let mBottom = getStyle(child, 'margin-bottom');
-      let cHeight  = child.offsetHeight;
-      return cHeight + mBottom + mTop + pTop + pBottom; 
-    } 
-    return el.offsetHeight;
-   
-   
+const getDimension = (node) => {
+    let margin = {},
+        padding = {
+            right   : getStyle(node, PADDING.RIGHT),
+            left    : getStyle(node, PADDING.LEFT),
+            top     : getStyle(node, PADDING.TOP),
+            bottom  : getStyle(node, PADDING.BOTTOM)
+        }
+    
+    if (node.childElementCount) {
+        let child       = node.childNodes[0];
+        margin.height   = getStyle(child, MARGIN.BOTTOM) +  getStyle(child, MARGIN.TOP);
+        margin.width    = getStyle(child, MARGIN.LEFT) +  getStyle(child, MARGIN.RIGHT);  
+        
+        return {
+            width : (child.scrollWidth || child.offsetWidth) + margin.width + padding.left + padding.right,
+            height : (child.scrollHeight || child.offsetHeight) + margin.height + padding.top + padding.bottom,
+        }
+    }
+
+    let range = getTextNodeBoundingClientRect(node.childNodes);
+
+    return {
+        width : range.width + padding.right + padding.left, 
+        height : range.height + padding.bottom + padding.top 
+    }
+
 }
 
-export default class ReactBootstrapSwitcher extends React.Component {
-  
+
+export default class ReactBootstrapToggle extends React.Component {
+
   constructor(props) {
     super(props);
     //set the state to either the prop.active value or default it to true
     this.state = { active : (typeof props.active !== 'undefined')? props.active : true};
-  }
+}
 
-  onClick() {
+onClick() {
     if(this.props.disabled) return;
     this.props.onChange && this.props.onChange(!this.state.active);
     this.setState({active : !this.state.active});
-  }
+}
 
-  setDimensions() {
-    let on = this.refs.on;
-    let off = this.refs.off;
-    let toggle = this.refs.toggle;
-    let width = Math.max(getWidth(on), getWidth(off));
-    let height = Math.max(getHeight(on), getHeight(off)); 
+setDimensions() {
+
+    let onDim   = getDimension(this.refs.on);
+    let offDim  = getDimension(this.refs.off);
+
+    let width   = Math.max(onDim.width, offDim.width);
+    let height  = Math.max(onDim.height, offDim.height); 
+    
     this.setState({width : this.props.width || width, height : this.props.height || height});
-  }
+}
 
-  componentDidMount() {
+componentDidMount() {
     this.setDimensions();
-  }
+}
 
-  componentWillReceiveProps(p) {
+componentWillReceiveProps(p) {
     this.setDimensions();
-  }
+}
 
 
-  getSizeClass() {
+getSizeClass() {
     switch(this.props.size) {
       case 'large':
-        return 'btn-lg';
-        break;
+      return 'btn-lg';
+      break;
       case 'small':
-        return 'btn-sm';
-        break;
+      return 'btn-sm';
+      break;
       case 'mini':
-        return 'btn-xs';
-        break;
+      return 'btn-xs';
+      break;
       default:
-        return '';
-    }
+      return '';
   }
+}
 
-  render() {
+render() {
     let onstyle = `btn-${this.props.onstyle}`; 
     let offstyle = 'btn-' + this.props.offstyle;
     let btn = 'btn';
@@ -102,22 +127,26 @@ export default class ReactBootstrapSwitcher extends React.Component {
     let style = {
       width  : this.state.width,
       height : this.state.height
-    };
+  };
 
     return (
-        <div ref='switcher' disabled={this.props.disabled} className={this.state.active ? activeClass : inactiveClass} 
-            onClick={this.onClick.bind(this)} style={style}>
-          <div className="toggle-group">
-            <label ref='on'  className={onStyleClass}>{this.props.on}</label>
-            <label ref='off'  className={offStyleClass}>{this.props.off}</label>
-            <span  ref='toggle' className="toggle-handle btn btn-default"></span>
-          </div>
+        <div 
+            ref='switcher' 
+            disabled={this.props.disabled} 
+            className={this.state.active ? activeClass : inactiveClass} 
+            onClick={this.onClick.bind(this)} 
+            style={style}>
+            <div className="toggle-group">
+                <label ref='on'  className={onStyleClass}>{this.props.on}</label>
+                <label ref='off'  className={offStyleClass}>{this.props.off}</label>
+                <span  ref='toggle' className="toggle-handle btn btn-default"></span>
+            </div>
         </div>
     );
-  }
+}
 }
 
-ReactBootstrapSwitcher.propTypes = {
+ReactBootstrapToggle.propTypes = {
     // Holds the className for label one 
     onstyle     : React.PropTypes.string,
     // Holds the className for label two
@@ -139,7 +168,7 @@ ReactBootstrapSwitcher.propTypes = {
     onChange    : React.PropTypes.func
 };
 
-ReactBootstrapSwitcher.defaultProps = {
+ReactBootstrapToggle.defaultProps = {
     onstyle     : 'primary',
     offstyle    : 'default',
     width       : '',
@@ -150,5 +179,3 @@ ReactBootstrapSwitcher.defaultProps = {
     size        : 'normal',
     active      : true
 }
-
-
