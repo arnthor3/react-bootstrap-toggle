@@ -12,7 +12,7 @@ If you are using the npm version then you can include it from the module like th
 
 Or you could import it to your SASS or LESS build.
 
-```sh
+```html
 @import "node_modules/lib/bootstrap2-toggle.css";
 ```
 
