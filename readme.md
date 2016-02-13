@@ -69,34 +69,7 @@ onstyle|string|"primary"|Style of the on toggle. Possible values are `default`, 
 offstyle|string|"default"|Style of the off toggle. Possible values are `default`, `primary`, `success`, `info`, `warning`, `danger`
 width|integer|*null*|Sets the width of the toggle. if set to *null*, width will be calculated.
 height|integer|*null*|Sets the height of the toggle. if set to *null*, height will be calculated.
-
-### onChange
-Invoked when the component state changes.
-
-
-ss";
-```
-
-## NPM
-
-```sh
-npm install react-bootstrap-toggle --save
-```
-
-### Props
-
-
-
-Name|Type|Default|Description|
----|---|---|---
-on|string/html|"On"|Text of the on toggle
-off|string/html|"Off"|Text of the off toggle
-size|string|"normal"|Size of the toggle. Possible values are `large`, `normal`, `small`, `mini`.
-onstyle|string|"primary"|Style of the on toggle. Possible values are `default`, `primary`, `success`, `info`, `warning`, `danger`
-offstyle|string|"default"|Style of the off toggle. Possible values are `default`, `primary`, `success`, `info`, `warning`, `danger`
-width|integer|*null*|Sets the width of the toggle. if set to *null*, width will be calculated.
-height|integer|*null*|Sets the height of the toggle. if set to *null*, height will be calculated.
-
+onChange|function|A Callback to that returns the state of the toggle
 ### onChange
 Invoked when the component state changes.
 
