@@ -17,8 +17,8 @@
   "author": "arnthor",
   "license": "ISC",
   "peerDependencies": {
-    "react": "^0.14.6",
-    "react-dom": "^0.14.6"
+    "react": "^0.14.6 || ^15.0.0-rc || ^15.0",
+    "react-dom": "^0.14.6 || ^15.0.0-rc || ^15.0"
   },
   "devDependencies": {
     "babel": "^6.3.26",
