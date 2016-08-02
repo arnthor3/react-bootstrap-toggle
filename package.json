@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-toggle",
-  "version": "1.2.14",
+  "version": "1.2.17",
   "description": "A React version of the bootstrap-toggle without the JQuery dependency",
   "main": "./lib/react-bootstrap-toggle.js",
   "repository": {
@@ -21,7 +21,6 @@
     "react-dom": "^0.14.6 || ^15.0.0-rc || ^15.0"
   },
   "devDependencies": {
-    "babel": "^6.3.26",
     "babel-cli": "^6.4.5",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
