@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-toggle",
-  "version": "1.2.17",
+  "version": "1.2.18",
   "description": "A React version of the bootstrap-toggle without the JQuery dependency",
   "main": "./lib/react-bootstrap-toggle.js",
   "repository": {
@@ -8,8 +8,9 @@
     "url": "arnthor3/react-bootstrap-toggle"
   },
   "scripts": {
+    "less": "gulp less",
     "compile": "babel --presets es2015,react -d lib/ src/",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run compile && npm run less"
   },
   "keywords": [
     "react bootstrap bootstrap-switcher"
