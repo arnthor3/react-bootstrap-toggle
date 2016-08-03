@@ -45,7 +45,7 @@ gulp.task('less', function () {
     .pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./lib'));
 });
 
 
