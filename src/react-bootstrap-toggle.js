@@ -127,7 +127,7 @@ export default class ReactBootstrapToggle extends React.Component {
         <div className="toggle-group">
           <label ref='on'  className={onStyleClass}>{this.props.on}</label>
           <label ref='off'  className={offStyleClass}>{this.props.off}</label>
-          <span  ref='toggle' className="toggle-handle btn btn-default"></span>
+          <span  ref='toggle' className={`toggle-handle btn btn-${this.props.handlestyle}`}></span>
         </div>
       </div>
     );
@@ -139,6 +139,8 @@ ReactBootstrapToggle.propTypes = {
   onstyle     : React.PropTypes.string,
   // Holds the className for label two
   offstyle    : React.PropTypes.string,
+  // Holds the className for the middle handle
+  handlestyle : React.PropTypes.string,
   // Height prop
   height      : React.PropTypes.string,
   // Width prop
@@ -159,6 +161,7 @@ ReactBootstrapToggle.propTypes = {
 ReactBootstrapToggle.defaultProps = {
   onstyle     : 'primary',
   offstyle    : 'default',
+  handlestyle : 'default',
   width       : '',
   height      : '',
   on          : 'On',
