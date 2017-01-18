@@ -12,6 +12,7 @@ label.checkbox.inline .toggle {
 	margin-left: -20px;
 	margin-right: 5px;
 }
+
 .toggle {
 	min-width: 40px;
 	height: 20px;
@@ -29,10 +30,13 @@ label.checkbox.inline .toggle {
 	-webkit-transition: left 0.35s;
 	-moz-user-select: none;
 	-webkit-user-select: none;
+	user-select: none;
 }
+
 .toggle.off .toggle-group {
 	left: -100%;
 }
+
 .toggle-on {
 	position: absolute;
 	top: 0;
@@ -43,6 +47,7 @@ label.checkbox.inline .toggle {
 	border: 0;
 	border-radius: 0;
 }
+
 .toggle-off {
 	position: absolute;
 	top: 0;
@@ -53,6 +58,7 @@ label.checkbox.inline .toggle {
 	border: 0;
 	border-radius: 0;
 }
+
 .toggle-handle {
 	position: relative;
 	margin: 0 auto;
@@ -62,9 +68,11 @@ label.checkbox.inline .toggle {
 	width: 0px;
 	border-width: 0 1px;
 }
+
 .toggle-handle.btn-mini {
 	top: -1px;
 }
+
 .toggle.btn { min-width: 30px; }
 .toggle-on.btn { padding-right: 24px; display: flex; align-items: center; }
 .toggle-off.btn { padding-left: 24px; display: flex; align-items: center; }
@@ -82,5 +90,5 @@ label.checkbox.inline .toggle {
 .toggle-off.btn-mini { padding-left: 12px; }
 
 .slow .toggle-group { transition: left 0.7s; -webkit-transition: left 0.7s; }
-  .fast .toggle-group { transition: left 0.1s; -webkit-transition: left 0.1s; }
-  .quick .toggle-group { transition: none; -webkit-transition: none; }
+.fast .toggle-group { transition: left 0.1s; -webkit-transition: left 0.1s; }
+.quick .toggle-group { transition: none; -webkit-transition: none; }
