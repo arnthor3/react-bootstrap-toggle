@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-toggle",
-  "version": "1.2.20",
+  "version": "2.0.0",
   "description": "A React version of the bootstrap-toggle without the JQuery dependency",
   "main": "./lib/react-bootstrap-toggle.js",
   "repository": {
@@ -11,7 +11,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "coverage": "jest --coverage",
-    "start": "webpack-dev-server --host localhost -port 5000 --inline --hot",
+    "start": "webpack-dev-server --inline --hot",
     "coveralls": "jet --coverage | coveralls",
     "build": "babel src -d dist"
   },
@@ -39,7 +39,6 @@
     "mocha": "^3.2.0",
     "react-addons-test-utils": "^15.4.1",
     "sinon": "^1.17.6",
-    "testdouble": "^1.10.0",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
   },
