@@ -1,6 +1,7 @@
 ## React-Bootstrap-Toggle
 [![Build Status](https://travis-ci.org/arnthor3/react-bootstrap-toggle.svg?branch=master)](https://travis-ci.org/arnthor3/react-bootstrap-toggle)
 [![Coverage Status](https://coveralls.io/repos/github/arnthor3/react-bootstrap-toggle/badge.svg?branch=master)](https://coveralls.io/github/arnthor3/react-bootstrap-toggle?branch=master)
+
 This is a react component of the http://www.bootstraptoggle.com/ project.
 
 ### Usage
@@ -40,9 +41,12 @@ class Form extends Componentn {
       <form>
         <input type="text">
         <input type="number">
+        .....
         <Toggle
           onClick={this.onToggle}
-
+          on={<h2>ON</h2>}
+          off={<h2>OFF</h2>}
+          active={this.state.toggleActive}
         />
       </form>
     )
