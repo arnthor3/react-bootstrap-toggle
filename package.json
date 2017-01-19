@@ -2,13 +2,13 @@
   "name": "react-bootstrap-toggle",
   "version": "2.0.0",
   "description": "A React version of the bootstrap-toggle without the JQuery dependency",
-  "main": "./lib/react-bootstrap-toggle.js",
+  "main": "./dist/react-bootstrap-toggle.js",
   "repository": {
     "type": "git",
     "url": "arnthor3/react-bootstrap-toggle"
   },
   "scripts": {
-    "test": "jest --config=jest-config.json",
+    "test": "jest",
     "test:watch": "jest --watch",
     "coverage": "jest --coverage",
     "start": "webpack-dev-server --inline --hot",
