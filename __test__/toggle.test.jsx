@@ -5,8 +5,6 @@ import Toggle from '../src/react-bootstrap-toggle';
 import * as util from '../src/utils';
 
 describe('<Toggle />', () => {
-
-
   it('should know margin of error is one', () => {
     expect(util.compareWithMarginOfError(99, 100)).toBe(true);
     expect(util.compareWithMarginOfError(100, 101)).toBe(true);
@@ -22,6 +20,7 @@ describe('<Toggle />', () => {
         size="small"
       />
     );
+    wrapper.update();
     util.compareWithMarginOfError.restore();
   });
   it('should render plain text', () => {
@@ -46,8 +45,10 @@ describe('<Toggle />', () => {
         size="mini"
       />
     );
+
     wrapper.setProps({ active: false, off: 'yes'});
     util.compareWithMarginOfError.restore();
+
   });
   it('should resize click events', () => {
     let spy = sinon.stub(util, 'getDimension').returns({ width: 50, height: 50});
@@ -80,30 +81,17 @@ describe('<Toggle />', () => {
     );
 
     wrapper.simulate('click');
-
     expect(active).toBe(false);
-
     wrapper.setProps({ disabled: true });
-
     wrapper.simulate('click');
-
     expect(active).toBe(false);
   });
 
-  it('should render text nodes', () => {
+  it('should return 0 when the createRange is not a function', () => {
+    let spy = sinon.stub(util, 'compareWithMarginOfError').returns(true);
 
-    let spy = sinon.stub(util, 'getDimension').returns({ width: 50, height: 50});
-    // let stub = sinon.stub(global.document, 'createRange' ).returns(true);
-    document.createRange = () => {
-      return {
-        selectNodeContents() {
+    document.createRange = 42;
 
-        },
-        getBoundingClientRect() {
-
-        }
-      }
-    }
     const wrapper = mount(
       <Toggle
         on={`no no no <br/> no <h1>NOOO!!!</h1> NOOOOOOO!!!!`}
@@ -111,9 +99,7 @@ describe('<Toggle />', () => {
         size="large"
       />
     );
-    expect(document.createRange).toBeDefined();
-    util.getDimension.restore();
-
+    util.compareWithMarginOfError.restore();
   });
 
 });

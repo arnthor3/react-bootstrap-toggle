@@ -39,13 +39,14 @@ class Form extends Componentn {
   render() {
     return (
       <form>
-        <input type="text">
-        <input type="number">
+        <SomeInput something={true} />
         .....
         <Toggle
           onClick={this.onToggle}
           on={<h2>ON</h2>}
           off={<h2>OFF</h2>}
+          size="large"
+          offstyle="danger"
           active={this.state.toggleActive}
         />
       </form>
@@ -54,11 +55,6 @@ class Form extends Componentn {
 
 }
 
-ReactDOM.render(<ReactBootstrapToggle
-                on={on}
-                off={off}
-                active={false}
-                onChange={onChange} />, document.getElementById('app') );
 
 ```
 
