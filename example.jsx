@@ -1,28 +1,29 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Toggle from './src/react-bootstrap-toggle.js';
+import Toggle from './src/react-bootstrap-toggle.jsx';
 
 class App extends React.Component {
   constructor() {
     super();
     this.onClick = this.onClick.bind(this);
-    this.state = { active: false };
+    this.state = { active: false, yes : <h1>Yes</h1> };
   }
 
   onClick() {
-    this.setState({ active: !this.state.active });
+    this.setState({ active: !this.state.active, yes: <h2>Yss</h2> });
   }
 
   render() {
+    const style = {
+      margin: '20px 20px',
+    }
     return (
-      <div>
+      <div style={style}>
         <Toggle
           active={this.state.active}
-          on={<p>Yes</p>}
-          off={<p>No</p>}
-          onChange={() => {
-            this.onClick();
-          }}
+          on={this.state.yes}
+          off="qwerqrwe12341234"
+          onClick={this.onClick}
         />
       </div>
     );
