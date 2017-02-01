@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Toggle from './react-bootstrap-toggle';
 
 export default class ReactBootstrap2Toggle extends Toggle {

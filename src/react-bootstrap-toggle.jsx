@@ -136,7 +136,7 @@ export default class ReactBootstrapToggle extends Component {
           >
             {this.props.off}
           </span>
-          <span className="toggle-handle btn btn-default" />
+          <span className={`toggle-handle btn btn-default ${sizeClass}`} />
         </div>
       </div>
     );

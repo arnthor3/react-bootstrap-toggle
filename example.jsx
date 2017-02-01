@@ -7,11 +7,11 @@ class App extends React.Component {
   constructor() {
     super();
     this.onClick = this.onClick.bind(this);
-    this.state = { active: false, yes: <h1>Yes</h1> };
+    this.state = { active: false, yes: <span>Yes</span> };
   }
 
   onClick() {
-    this.setState({ active: !this.state.active, yes: <h2>Yss</h2> });
+    this.setState({ active: !this.state.active, yes: <span>Yss</span> });
   }
 
   render() {
@@ -21,12 +21,12 @@ class App extends React.Component {
 
     return (
       <div style={style}>
-        <Bootstrap2Toggle
+        <Toggle
           active={this.state.active}
           on={this.state.yes}
           off="qwerqrwe12341234"
           onClick={this.onClick}
-          size="small"
+          size="mini"
         />
       </div>
     );
