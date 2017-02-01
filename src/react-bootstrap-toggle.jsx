@@ -60,7 +60,7 @@ export default class ReactBootstrapToggle extends Component {
   onClick() {
     if (this.props.disabled) return;
     if (typeof this.props.onClick === 'function') {
-      this.props.onClick(!this.state.active);
+      this.props.onClick(!this.props.active);
     }
   }
 
