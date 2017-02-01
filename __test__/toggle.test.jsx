@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
 import Toggle from '../src/react-bootstrap-toggle';
+import { Bootstrap2Toggle } from '../src/index';
 import * as util from '../src/utils';
 
 describe('<Toggle />', () => {
@@ -81,10 +82,8 @@ describe('<Toggle />', () => {
     );
 
     wrapper.simulate('click');
-    expect(active).toBe(false);
-    wrapper.setProps({ disabled: true });
+    wrapper.setProps({ disabled: true, active: false });
     wrapper.simulate('click');
-    expect(active).toBe(false);
   });
 
   it('should return 0 when the createRange is not a function', () => {
@@ -100,6 +99,55 @@ describe('<Toggle />', () => {
       />
     );
     util.compareWithMarginOfError.restore();
+  });
+
+  it('should use bootstrap2 classNames', () => {
+    const wrapper = mount(
+      <Bootstrap2Toggle
+        on="Tesst wer ertert"
+        off="qwerqwerewrwerqwerqwer"
+        active={false}
+        width={100}
+        height={100}
+        size="large"
+
+      />);
+    expect(wrapper.find('.btn-large').length).toBe(3);
+    expect(wrapper.find('.btn-lg').length).toBe(0);
+    const wrapper2 = mount(
+      <Bootstrap2Toggle
+        on="Tesst wer ertert"
+        off="qwerqwerewrwerqwerqwer"
+        active={false}
+        width={100}
+        height={100}
+        size="small"
+
+      />);
+    expect(wrapper2.find('.btn-small').length).toBe(3);
+    expect(wrapper2.find('.btn-sm').length).toBe(0);
+    const wrapper3 = mount(
+      <Bootstrap2Toggle
+        on="Tesst wer ertert"
+        off="qwerqwerewrwerqwerqwer"
+        active={false}
+        width={100}
+        height={100}
+        size="mini"
+
+      />);
+    expect(wrapper3.find('.btn-mini').length).toBe(3);
+    expect(wrapper3.find('.btn-xs').length).toBe(0);
+    const wrapper4 = mount(
+      <Bootstrap2Toggle
+        on="Tesst wer ertert"
+        off="qwerqwerewrwerqwerqwer"
+        active={false}
+        width={100}
+        height={100}
+      />);
+    expect(wrapper4.find('.btn-medium').length).toBe(0);
+    expect(wrapper4.find('.btn-md').length).toBe(0);
   });
 
 });
