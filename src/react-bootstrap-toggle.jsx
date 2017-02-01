@@ -1,8 +1,43 @@
 import React, { Component, PropTypes } from 'react';
 import * as util from './utils.js';
+
 export default class ReactBootstrapToggle extends Component {
-  constructor(props) {
-    super(props);
+  static propTypes = {
+    // Holds the className for label one
+    onstyle: PropTypes.string,
+    // Holds the className for label two
+    offstyle: PropTypes.string,
+    // Height prop
+    height: PropTypes.string,
+    // Width prop
+    width: PropTypes.string,
+    // The on and off elements defaults to 'On' and 'Off'
+    on: PropTypes.node,
+    off: PropTypes.node,
+    // The initial state of the component
+    active: PropTypes.bool,
+    // Sets the button to disabled
+    disabled: PropTypes.bool,
+    // Set the size of the button defaults to normal
+    size: PropTypes.string,
+    // The onClick event, returns the state as the argument
+    onClick: PropTypes.func,
+  }
+
+  static defaultProps = {
+    onstyle: 'primary',
+    offstyle: 'default',
+    width: '',
+    height: '',
+    on: 'On',
+    off: 'Off',
+    disabled: false,
+    size: 'normal',
+    active: true,
+  }
+
+  constructor() {
+    super();
     this.state = { width: null, height: null };
     this.onClick = this.onClick.bind(this);
   }
@@ -108,37 +143,7 @@ export default class ReactBootstrapToggle extends Component {
   }
 }
 
-ReactBootstrapToggle.propTypes = {
-  // Holds the className for label one
-  onstyle: PropTypes.string,
-  // Holds the className for label two
-  offstyle: PropTypes.string,
-  // Height prop
-  height: PropTypes.string,
-  // Width prop
-  width: PropTypes.string,
-  // The on and off elements defaults to 'On' and 'Off'
-  on: PropTypes.node,
-  off: PropTypes.node,
-  // The initial state of the component
-  active: PropTypes.bool,
-  // Sets the button to disabled
-  disabled: PropTypes.bool,
-  // Set the size of the button defaults to normal
-  size: PropTypes.string,
-  // The onClick event, returns the state as the argument
-  onClick: PropTypes.func,
-};
 
-ReactBootstrapToggle.defaultProps = {
-  onstyle: 'primary',
-  offstyle: 'default',
-  width: '',
-  height: '',
-  on: 'On',
-  off: 'Off',
-  disabled: false,
-  size: 'normal',
-  active: true,
-};
+
+;
 

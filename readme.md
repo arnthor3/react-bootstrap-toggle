@@ -78,5 +78,12 @@ width|integer|*null*|Sets the width of the toggle. if set to *null*, width will 
 height|integer|*null*|Sets the height of the toggle. if set to *null*, height will be calculated.
 onClick|function|*null*|A Callback that returns the current state of the toggle
 
-### Updates
+### Using Bootstrap2 class names
+
+If you want to use bootstrap two class names you can import the component like this
+```js
+import { Bootstrap2Toggle } from 'react-bootstrap-toggle';
+```
+Now the component will use large instead of lg and etc..
+
 
