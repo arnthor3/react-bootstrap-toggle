@@ -112,7 +112,7 @@ describe('<Toggle />', () => {
         size="large"
 
       />);
-    expect(wrapper.find('.btn-large').length).toBe(3);
+    expect(wrapper.find('.btn-large').length).toBe(4);
     expect(wrapper.find('.btn-lg').length).toBe(0);
     const wrapper2 = mount(
       <Bootstrap2Toggle
@@ -124,7 +124,7 @@ describe('<Toggle />', () => {
         size="small"
 
       />);
-    expect(wrapper2.find('.btn-small').length).toBe(3);
+    expect(wrapper2.find('.btn-small').length).toBe(4);
     expect(wrapper2.find('.btn-sm').length).toBe(0);
     const wrapper3 = mount(
       <Bootstrap2Toggle
@@ -136,7 +136,7 @@ describe('<Toggle />', () => {
         size="mini"
 
       />);
-    expect(wrapper3.find('.btn-mini').length).toBe(3);
+    expect(wrapper3.find('.btn-mini').length).toBe(4);
     expect(wrapper3.find('.btn-xs').length).toBe(0);
     const wrapper4 = mount(
       <Bootstrap2Toggle

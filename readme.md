@@ -80,7 +80,7 @@ onClick|function|*null*|A Callback that returns the current state of the toggle
 
 ### Using Bootstrap2 class names
 
-If you want to use bootstrap two class names you can import the component like this
+If you want to use bootstrap2 class names you can import the component like this
 ```js
 import { Bootstrap2Toggle } from 'react-bootstrap-toggle';
 ```
