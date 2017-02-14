@@ -87,7 +87,7 @@ import { Bootstrap2Toggle } from 'react-bootstrap-toggle';
 ```
 Now the component will use large instead of lg and etc..
 
-### <Bootstrap2Toggle /> Props
+### Bootstrap2Toggle Props
 Name|Type|Default|Description|
 ---|---|---|---
 size|string|*null*|Size of the toggle. Possible values are `large`, `small`, `tiny`.
