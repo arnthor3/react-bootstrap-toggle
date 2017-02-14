@@ -80,14 +80,17 @@ height|integer|*null*|Sets the height of the toggle. if set to *null*, height wi
 onClick|function|*null*|A Callback that returns the current state of the toggle
 
 ### Using Bootstrap2 class names
-Name|Type|Default|Description|
----|---|---|---
-size|string|*null*|Size of the toggle. Possible values are `large`, `small`, `tiny`.
 
 If you want to use bootstrap2 class names you can import the component like this
 ```js
 import { Bootstrap2Toggle } from 'react-bootstrap-toggle';
 ```
 Now the component will use large instead of lg and etc..
+
+### <Bootstrap2Toggle /> Props
+Name|Type|Default|Description|
+---|---|---|---
+size|string|*null*|Size of the toggle. Possible values are `large`, `small`, `tiny`.
+
 
 
