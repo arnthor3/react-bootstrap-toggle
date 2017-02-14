@@ -25,8 +25,9 @@ class App extends React.Component {
           active={this.state.active}
           on={this.state.yes}
           off="qwerqrwe12341234"
+          handlestyle="warning"
           onClick={this.onClick}
-          size="mini"
+          size="xs"
         />
       </div>
     );

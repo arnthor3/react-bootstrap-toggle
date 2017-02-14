@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import * as util from './utils.js';
+import * as util from './utils';
 
 export default class ReactBootstrapToggle extends Component {
   static propTypes = {
@@ -7,6 +7,8 @@ export default class ReactBootstrapToggle extends Component {
     onstyle: PropTypes.string,
     // Holds the className for label two
     offstyle: PropTypes.string,
+    // The className for the handle
+    handlestyle: PropTypes.string,
     // Height prop
     height: PropTypes.string,
     // Width prop
@@ -27,6 +29,7 @@ export default class ReactBootstrapToggle extends Component {
   static defaultProps = {
     onstyle: 'primary',
     offstyle: 'default',
+    handlestyle: 'default',
     width: '',
     height: '',
     on: 'On',
@@ -89,9 +92,9 @@ export default class ReactBootstrapToggle extends Component {
   }
 
   getSizeClass() {
-    if (this.props.size === 'large') return 'btn-lg';
-    if (this.props.size === 'small') return 'btn-sm';
-    if (this.props.size === 'mini') return 'btn-xs';
+    if (this.props.size === 'lg') return 'btn-lg';
+    if (this.props.size === 'sm') return 'btn-sm';
+    if (this.props.size === 'xs') return 'btn-xs';
     return 'btn-md';
   }
 
@@ -117,11 +120,14 @@ export default class ReactBootstrapToggle extends Component {
       };
     }
     return (
+      // eslint-disable-next-line jsx-a11y/no-static-element-interactions
       <div
+        role="button"
         disabled={this.props.disabled}
         className={this.props.active ? activeClass : inactiveClass}
         onClick={this.onClick}
         style={style}
+
       >
         <div className="toggle-group">
           <span
@@ -136,14 +142,9 @@ export default class ReactBootstrapToggle extends Component {
           >
             {this.props.off}
           </span>
-          <span className={`toggle-handle btn btn-default ${sizeClass}`} />
+          <span className={`toggle-handle btn btn-${this.props.handlestyle} ${sizeClass}`} />
         </div>
       </div>
     );
   }
 }
-
-
-
-;
-

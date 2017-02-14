@@ -25,7 +25,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Toggle from 'react-bootstrap-toggle';
 
-class Form extends Componentn {
+class Form extends Component {
   constructor() {
     super();
     this.state = { toggleActive: false };
@@ -39,13 +39,13 @@ class Form extends Componentn {
   render() {
     return (
       <form>
-        <SomeInput something={true} />
+        <SomeInput something={someProp} />
         .....
         <Toggle
           onClick={this.onToggle}
           on={<h2>ON</h2>}
           off={<h2>OFF</h2>}
-          size="large"
+          size="xs"
           offstyle="danger"
           active={this.state.toggleActive}
         />
@@ -71,14 +71,17 @@ Name|Type|Default|Description|
 active|boolean|true| Sets the initial state of the toggle
 on|string/html|"On"|Text of the on toggle
 off|string/html|"Off"|Text of the off toggle
-size|string|"normal"|Size of the toggle. Possible values are `large`, `normal`, `small`, `mini`.
+size|string|*null*|Size of the toggle. Possible values are `lg`, `sm`, `xs`.
 onstyle|string|"primary"|Style of the on toggle. Possible values are `default`, `primary`, `success`, `info`, `warning`, `danger`
 offstyle|string|"default"|Style of the off toggle. Possible values are `default`, `primary`, `success`, `info`, `warning`, `danger`
-width|integer|*null*|Sets the width of the toggle. if set to *null*, width will be calculated.
-height|integer|*null*|Sets the height of the toggle. if set to *null*, height will be calculated.
+handlestyle|string|"default"|Style of the off toggle. Possible values are `default`, `primary`, `success`, `info`, `warning`, `danger`
+width|integer|*null*|Sets the width of the toggle. if set to *null*, width will be responsive.
+height|integer|*null*|Sets the height of the toggle. if set to *null*, height will be responsive.
 onClick|function|*null*|A Callback that returns the current state of the toggle
 
 ### Using Bootstrap2 class names
+Name|Type|Default|Description|
+size|string|*null*|Size of the toggle. Possible values are `large`, `small`, `tiny`.
 
 If you want to use bootstrap2 class names you can import the component like this
 ```js
