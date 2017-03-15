@@ -74,7 +74,7 @@ off|string/html|"Off"|Text of the off toggle
 size|string|*null*|Size of the toggle. Possible values are `lg`, `sm`, `xs`.
 onstyle|string|"primary"|Style of the on toggle. Possible values are `default`, `primary`, `success`, `info`, `warning`, `danger`
 offstyle|string|"default"|Style of the off toggle. Possible values are `default`, `primary`, `success`, `info`, `warning`, `danger`
-handlestyle|string|"default"|Style of the off toggle. Possible values are `default`, `primary`, `success`, `info`, `warning`, `danger`
+handlestyle|string|"default"|Style of the handle. Possible values are `default`, `primary`, `success`, `info`, `warning`, `danger`
 width|integer|*null*|Sets the width of the toggle. if set to *null*, width will be responsive.
 height|integer|*null*|Sets the height of the toggle. if set to *null*, height will be responsive.
 onClick|function|*null*|A Callback that returns the current state of the toggle
