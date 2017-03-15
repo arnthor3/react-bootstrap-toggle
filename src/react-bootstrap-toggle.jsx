@@ -24,6 +24,8 @@ export default class ReactBootstrapToggle extends Component {
     size: PropTypes.string,
     // The onClick event, returns the state as the argument
     onClick: PropTypes.func,
+    id: PropTypes.string,
+    className: PropTypes.string,
   }
 
   static defaultProps = {
@@ -108,6 +110,7 @@ export default class ReactBootstrapToggle extends Component {
     const offStyleClass = `btn toggle-off ${sizeClass} ${offstyle}`;
 
     let style = {};
+    let className = this.props.active ? activeClass : inactiveClass;
     if (this.props.width && this.props.height) {
       style = {
         width: this.props.width,
@@ -119,12 +122,18 @@ export default class ReactBootstrapToggle extends Component {
         height: this.state.height,
       };
     }
+
+    if (this.props.className) {
+      className += ` ${this.props.className}`;
+    }
+
     return (
       // eslint-disable-next-line jsx-a11y/no-static-element-interactions
       <div
         role="button"
+        id={this.props.id}
         disabled={this.props.disabled}
-        className={this.props.active ? activeClass : inactiveClass}
+        className={className}
         onClick={this.onClick}
         style={style}
 
