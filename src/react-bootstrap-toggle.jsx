@@ -1,6 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import * as util from './utils';
 
+const eitherStringOrInteger = PropTypes.oneOfType([
+  PropTypes.string,
+  PropTypes.number,
+]);
+
 export default class ReactBootstrapToggle extends Component {
   static propTypes = {
     // Holds the className for label one
@@ -10,9 +15,9 @@ export default class ReactBootstrapToggle extends Component {
     // The className for the handle
     handlestyle: PropTypes.string,
     // Height prop
-    height: PropTypes.string,
+    height: eitherStringOrInteger,
     // Width prop
-    width: PropTypes.string,
+    width: eitherStringOrInteger,
     // The on and off elements defaults to 'On' and 'Off'
     on: PropTypes.node,
     off: PropTypes.node,

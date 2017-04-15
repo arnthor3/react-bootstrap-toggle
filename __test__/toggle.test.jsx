@@ -107,6 +107,7 @@ describe('<Toggle />', () => {
         on="Tesst wer ertert"
         off="qwerqwerewrwerqwerqwer"
         active={false}
+        className="test"
         width={100}
         height={100}
         size="large"
