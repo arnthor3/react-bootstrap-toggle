@@ -144,20 +144,22 @@ export default class ReactBootstrapToggle extends Component {
         style={style}
 
       >
-        <div className="toggle-group">
+        <div className="toggle-group" >
           <span
             ref={(onLabel) => { this.on = onLabel; }}
             className={onStyleClass}
+            disabled={this.props.disabled}
           >
             {this.props.on}
           </span>
           <span
             ref={(offLabel) => { this.off = offLabel; }}
             className={offStyleClass}
+            disabled={this.props.disabled}
           >
             {this.props.off}
           </span>
-          <span className={`toggle-handle btn btn-${this.props.handlestyle} ${sizeClass}`} />
+          <span disabled={this.props.disabled} className={`toggle-handle btn btn-${this.props.handlestyle} ${sizeClass}`} />
         </div>
       </div>
     );

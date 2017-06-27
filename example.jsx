@@ -28,6 +28,7 @@ class App extends React.Component {
           handlestyle="warning"
           onClick={this.onClick}
           size="xs"
+          disabled
         />
       </div>
     );
