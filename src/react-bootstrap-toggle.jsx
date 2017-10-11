@@ -94,8 +94,8 @@ export default class ReactBootstrapToggle extends Component {
     }
 
     this.setState({
-      width,
-      height,
+      width: this.props.width || width,
+      height: this.props.height || height,
     });
   }
 
