@@ -77,8 +77,13 @@ offstyle|string|"default"|Style of the off toggle. Possible values are `default`
 handlestyle|string|"default"|Style of the handle. Possible values are `default`, `primary`, `success`, `info`, `warning`, `danger`
 width|integer|*null*|Sets the width of the toggle. if set to *null*, width will be responsive.
 height|integer|*null*|Sets the height of the toggle. if set to *null*, height will be responsive.
-onClick|function|*null*|A Callback that returns the current state of the toggle
+style|object|*null*|If you want to add additional style to the root div
 
+### onClick
+A callback function that returns the state, the parent node, and the event
+```js
+onClick(state, node, evt);
+```
 ### Using Bootstrap2 class names
 
 If you want to use bootstrap2 class names you can import the component like this

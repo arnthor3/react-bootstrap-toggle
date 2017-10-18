@@ -106,7 +106,18 @@ export default class ReactBootstrapToggle extends Component {
   }
 
   render() {
-    const { onClick, onstyle, offstyle, handlestyle, style, ...props } = this.props;
+    const {
+      active, 
+      onClick, 
+      onstyle, 
+      offstyle, 
+      handlestyle, 
+      style,
+      on,
+      off,
+      className,
+      disabled, 
+      ...props } = this.props;
     const prop = Object.assign(this.props);
     const onStyle = `btn-${onstyle}`;
     const offStyle = `btn-${offstyle}`;
@@ -117,7 +128,7 @@ export default class ReactBootstrapToggle extends Component {
     const offStyleClass = `btn toggle-off ${sizeClass} ${offStyle}`;
 
     let s = {};
-    let className = this.props.active ? activeClass : inactiveClass;
+    let toggleClassName = this.props.active ? activeClass : inactiveClass;
     if (this.props.width && this.props.height) {
       s = {
         width: this.props.width,
@@ -130,8 +141,8 @@ export default class ReactBootstrapToggle extends Component {
       };
     }
 
-    if (this.props.className) {
-      className += ` ${this.props.className}`;
+    if (className) {
+      toggleClassName += ` ${className}`;
     }
 
     const mainStyle = Object.assign({}, s, style);
@@ -140,8 +151,8 @@ export default class ReactBootstrapToggle extends Component {
       // eslint-disable-next-line jsx-a11y/no-static-element-interactions
       <div
         role="button"
-        disabled={this.props.disabled}
-        className={className}
+        disabled={disabled}
+        className={toggleClassName}
         onClick={this.onClick}
         style={mainStyle}
         {...props}
@@ -151,18 +162,18 @@ export default class ReactBootstrapToggle extends Component {
           <span
             ref={(onLabel) => { this.on = onLabel; }}
             className={onStyleClass}
-            disabled={this.props.disabled}
+            disabled={disabled}
           >
-            {this.props.on}
+            {on}
           </span>
           <span
             ref={(offLabel) => { this.off = offLabel; }}
             className={offStyleClass}
-            disabled={this.props.disabled}
+            disabled={disabled}
           >
-            {this.props.off}
+            {off}
           </span>
-          <span disabled={this.props.disabled} className={`toggle-handle btn btn-${this.props.handlestyle} ${sizeClass}`} />
+          <span disabled={disabled} className={`toggle-handle btn btn-${handlestyle} ${sizeClass}`} />
         </div>
       </div>
     );
