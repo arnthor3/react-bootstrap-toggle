@@ -10,7 +10,7 @@ class App extends React.Component {
     this.state = { active: false, yes: <span>Yes</span> };
   }
 
-  onClick() {
+  onClick(state, evt, node) {
     this.setState({ active: !this.state.active, yes: <span>Yss</span> });
   }
 
@@ -22,13 +22,13 @@ class App extends React.Component {
     return (
       <div style={style}>
         <Toggle
+          data-attr-best="Take That"
           active={this.state.active}
           on={this.state.yes}
           off="qwerqrwe12341234"
           handlestyle="warning"
           onClick={this.onClick}
           size="xs"
-          disabled
         />
       </div>
     );

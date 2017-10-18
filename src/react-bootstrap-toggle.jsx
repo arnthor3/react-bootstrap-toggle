@@ -9,6 +9,7 @@ const eitherStringOrInteger = PropTypes.oneOfType([
 
 export default class ReactBootstrapToggle extends Component {
   static propTypes = {
+    style: PropTypes.shape(),
     // Holds the className for label one
     onstyle: PropTypes.string,
     // Holds the className for label two
@@ -30,7 +31,6 @@ export default class ReactBootstrapToggle extends Component {
     size: PropTypes.string,
     // The onClick event, returns the state as the argument
     onClick: PropTypes.func,
-    id: PropTypes.string,
     className: PropTypes.string,
   }
 
@@ -67,11 +67,10 @@ export default class ReactBootstrapToggle extends Component {
     this.setDimensions();
   }
 
-
-  onClick() {
+  onClick(evt) {
     if (this.props.disabled) return;
     if (typeof this.props.onClick === 'function') {
-      this.props.onClick(!this.props.active);
+      this.props.onClick(!this.props.active, this.parent, evt);
     }
   }
 
@@ -107,23 +106,25 @@ export default class ReactBootstrapToggle extends Component {
   }
 
   render() {
-    const onstyle = `btn-${this.props.onstyle}`;
-    const offstyle = `btn-${this.props.offstyle}`;
+    const { onClick, onstyle, offstyle, handlestyle, style, ...props } = this.props;
+    const prop = Object.assign(this.props);
+    const onStyle = `btn-${onstyle}`;
+    const offStyle = `btn-${offstyle}`;
     const sizeClass = this.getSizeClass();
-    const activeClass = `btn toggle ${sizeClass} ${onstyle}`;
-    const inactiveClass = `btn toggle ${sizeClass} ${offstyle} off`;
-    const onStyleClass = `btn toggle-on ${sizeClass} ${onstyle}`;
-    const offStyleClass = `btn toggle-off ${sizeClass} ${offstyle}`;
+    const activeClass = `btn toggle ${sizeClass} ${onStyle}`;
+    const inactiveClass = `btn toggle ${sizeClass} ${offStyle} off`;
+    const onStyleClass = `btn toggle-on ${sizeClass} ${onStyle}`;
+    const offStyleClass = `btn toggle-off ${sizeClass} ${offStyle}`;
 
-    let style = {};
+    let s = {};
     let className = this.props.active ? activeClass : inactiveClass;
     if (this.props.width && this.props.height) {
-      style = {
+      s = {
         width: this.props.width,
         height: this.props.height,
       };
     } else {
-      style = {
+      s = {
         width: this.state.width,
         height: this.state.height,
       };
@@ -133,16 +134,18 @@ export default class ReactBootstrapToggle extends Component {
       className += ` ${this.props.className}`;
     }
 
+    const mainStyle = Object.assign({}, s, style);
+
     return (
       // eslint-disable-next-line jsx-a11y/no-static-element-interactions
       <div
         role="button"
-        id={this.props.id}
         disabled={this.props.disabled}
         className={className}
         onClick={this.onClick}
-        style={style}
-
+        style={mainStyle}
+        {...props}
+        ref={(c) => { this.parent = c; }}
       >
         <div className="toggle-group" >
           <span
