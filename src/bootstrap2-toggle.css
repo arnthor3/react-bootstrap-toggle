@@ -70,11 +70,11 @@ label.checkbox.inline .toggle {
 }
 
 .toggle-handle.btn-mini  {
-	top: -1px;
+	top: -2px;
 }
 
 .toggle-handle.btn-xs {
-	top: -1px;
+	top: -2px;
 }
 
 .toggle.btn { min-width: 30px; }

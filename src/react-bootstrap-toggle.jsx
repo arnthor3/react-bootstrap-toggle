@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import * as util from './utils';
 
 const eitherStringOrInteger = PropTypes.oneOfType([
@@ -45,6 +46,7 @@ export default class ReactBootstrapToggle extends Component {
     disabled: false,
     size: 'normal',
     active: true,
+    style: {},
   }
 
   constructor() {
@@ -107,28 +109,21 @@ export default class ReactBootstrapToggle extends Component {
 
   render() {
     const {
-      active, 
-      onClick, 
-      onstyle, 
-      offstyle, 
-      handlestyle, 
+      active,
+      onClick,
+      onstyle,
+      offstyle,
+      handlestyle,
       style,
       on,
       off,
       className,
-      disabled, 
+      disabled,
       ...props } = this.props;
-    const prop = Object.assign(this.props);
-    const onStyle = `btn-${onstyle}`;
-    const offStyle = `btn-${offstyle}`;
+
     const sizeClass = this.getSizeClass();
-    const activeClass = `btn toggle ${sizeClass} ${onStyle}`;
-    const inactiveClass = `btn toggle ${sizeClass} ${offStyle} off`;
-    const onStyleClass = `btn toggle-on ${sizeClass} ${onStyle}`;
-    const offStyleClass = `btn toggle-off ${sizeClass} ${offStyle}`;
 
     let s = {};
-    let toggleClassName = this.props.active ? activeClass : inactiveClass;
     if (this.props.width && this.props.height) {
       s = {
         width: this.props.width,
@@ -141,39 +136,41 @@ export default class ReactBootstrapToggle extends Component {
       };
     }
 
-    if (className) {
-      toggleClassName += ` ${className}`;
-    }
-
-    const mainStyle = Object.assign({}, s, style);
-
     return (
       // eslint-disable-next-line jsx-a11y/no-static-element-interactions
       <div
         role="button"
         disabled={disabled}
-        className={toggleClassName}
+        className={cn('btn', 'toggle', className, sizeClass, {
+          [`off btn-${offstyle}`]: !this.props.active,
+          [`btn-${onstyle}`]: this.props.active,
+        })}
         onClick={this.onClick}
-        style={mainStyle}
+        style={Object.assign({}, s, style)}
         {...props}
         ref={(c) => { this.parent = c; }}
       >
         <div className="toggle-group" >
           <span
             ref={(onLabel) => { this.on = onLabel; }}
-            className={onStyleClass}
+            className={cn('btn', 'toggle-on', sizeClass, `btn-${onstyle}`)}
             disabled={disabled}
           >
             {on}
           </span>
           <span
             ref={(offLabel) => { this.off = offLabel; }}
-            className={offStyleClass}
+            className={cn('btn', 'toggle-off', sizeClass, `btn-${offstyle}`)}
             disabled={disabled}
           >
             {off}
           </span>
-          <span disabled={disabled} className={`toggle-handle btn btn-${handlestyle} ${sizeClass}`} />
+          <span
+            disabled={disabled}
+            className={cn('toggle-handle', 'btn', sizeClass,
+              { [`btn-${handlestyle}`]: handlestyle })
+            }
+          />
         </div>
       </div>
     );
