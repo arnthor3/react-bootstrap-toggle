@@ -119,22 +119,16 @@ export default class ReactBootstrapToggle extends Component {
       off,
       className,
       disabled,
+      width,
+      height,
       ...props } = this.props;
 
     const sizeClass = this.getSizeClass();
 
-    let s = {};
-    if (this.props.width && this.props.height) {
-      s = {
-        width: this.props.width,
-        height: this.props.height,
-      };
-    } else {
-      s = {
-        width: this.state.width,
-        height: this.state.height,
-      };
-    }
+    const s = {
+      width: this.state.width || width,
+      height: this.state.height || height,
+    };
 
     return (
       // eslint-disable-next-line jsx-a11y/no-static-element-interactions
