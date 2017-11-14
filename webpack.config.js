@@ -6,7 +6,7 @@ const DEV = NODE_ENV !== 'production';
 
 const devE = [
   'react-hot-loader/patch',
-  './example.jsx',
+  './examples/onClick.jsx',
 ];
 
 const prodE = {
@@ -44,6 +44,10 @@ module.exports = {
       test: /.jsx?$/,
       loader: 'babel-loader',
       exclude: /node_modules/,
+    },
+    {
+      test: /.css$/,
+      loader: 'style-loader!css-loader',
     }],
   },
   plugins: !DEV ? [minimize] : [],
