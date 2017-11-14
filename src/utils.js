@@ -28,8 +28,8 @@ const getTextNodeBoundingClientRect = (node) => {
 };
 
 
-export const compareWithMarginOfError = (num1, num2) =>
-  Math.abs(num1 - num2) < 1.01;
+export const compareWithMarginOfError = (isSet, num1, num2) =>
+  (isSet || Math.abs(num1 - num2) < 1.01);
 
 export const getDimension = (node) => {
   const margin = {};

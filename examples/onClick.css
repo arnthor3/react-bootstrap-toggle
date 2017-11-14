@@ -1,14 +1,14 @@
 /*
   The class names will have a prefix of btn
 */
-.btn-my_custom_off {
+.my_custom_off {
   color: #fff;
   background-color: rgb(41, 182, 246);
   border-color: rgb(2, 136, 209);
   color: white;
   transition: 0.5s;
 }
-.btn-my_custom_off:hover {
+.my_custom_off:hover {
   transition: 0.5s;
   color: white;
   background-color: rgb(2, 136, 209);

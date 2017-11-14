@@ -31,13 +31,14 @@ class OnClickToggleComponent extends Component {
         <div className="row" style={{ marginTop: '5em' }}>
           <div className="col-lg-3">
             <Toggle
+              width="100%"
               onClick={this.onClick}
               active={this.state.active}
               size="lg"
               on={<AwesomeOnNodeWithCoolPetMDIcon />}
               off={<OffNodeWithNoCoolMDIcons />}
-              onstyle="success"
-              offstyle="my_custom_off"
+              onstyleClassName="success"
+              offstyleClassName="my_custom_off"
               handlestyle="default"
             />
           </div>

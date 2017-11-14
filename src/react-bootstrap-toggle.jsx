@@ -13,10 +13,16 @@ export default class ReactBootstrapToggle extends Component {
     style: PropTypes.shape(),
     // Holds the className for label one
     onstyle: PropTypes.string,
+    // additional className for the on component
+    onstyleClassName: PropTypes.string,
     // Holds the className for label two
     offstyle: PropTypes.string,
+    // additional className for the off component
+    offstyleClassName: PropTypes.string,
     // The className for the handle
     handlestyle: PropTypes.string,
+    // additional className for the handle component
+    handlestyleClassName: PropTypes.string,
     // Height prop
     height: eitherStringOrInteger,
     // Width prop
@@ -85,8 +91,8 @@ export default class ReactBootstrapToggle extends Component {
 
     // Check if the sizes are the same with a margin of error of one pixel
     const areAlmostTheSame = (
-      util.compareWithMarginOfError(this.state.width, width) &&
-        util.compareWithMarginOfError(this.state.height, height)
+      util.compareWithMarginOfError(this.props.width, this.state.width, width) &&
+        util.compareWithMarginOfError(this.props.height, this.state.height, height)
     );
 
     // if they are the same then return
@@ -112,8 +118,11 @@ export default class ReactBootstrapToggle extends Component {
       active,
       onClick,
       onstyle,
+      onstyleClassName,
       offstyle,
+      offstyleClassName,
       handlestyle,
+      handlestyleClassName,
       style,
       on,
       off,
@@ -147,23 +156,36 @@ export default class ReactBootstrapToggle extends Component {
         <div className="toggle-group" >
           <span
             ref={(onLabel) => { this.on = onLabel; }}
-            className={cn('btn', 'toggle-on', sizeClass, `btn-${onstyle}`)}
+            className={cn(
+              'btn toggle-on',
+              sizeClass,
+              onstyleClassName, {
+                [`btn-${onstyle}`]: onstyle,
+              })}
             disabled={disabled}
           >
             {on}
           </span>
           <span
             ref={(offLabel) => { this.off = offLabel; }}
-            className={cn('btn', 'toggle-off', sizeClass, `btn-${offstyle}`)}
+            className={cn(
+              'btn toggle-off',
+              sizeClass,
+              offstyleClassName, {
+                [`btn-${offstyle}`]: offstyle,
+              })}
             disabled={disabled}
           >
             {off}
           </span>
           <span
             disabled={disabled}
-            className={cn('toggle-handle', 'btn', sizeClass,
-              { [`btn-${handlestyle}`]: handlestyle })
-            }
+            className={cn(
+              'toggle-handle btn',
+              sizeClass,
+              handlestyleClassName, {
+                [`btn-${handlestyle}`]: handlestyle,
+              })}
           />
         </div>
       </div>
