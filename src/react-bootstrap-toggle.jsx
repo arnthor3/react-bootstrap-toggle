@@ -91,8 +91,8 @@ export default class ReactBootstrapToggle extends Component {
 
     // Check if the sizes are the same with a margin of error of one pixel
     const areAlmostTheSame = (
-      util.compareWithMarginOfError(this.props.width, this.state.width, width) &&
-        util.compareWithMarginOfError(this.props.height, this.state.height, height)
+      util.compareWithMarginOfError(this.state.width, width, this.props.width,) &&
+        util.compareWithMarginOfError(this.state.height, height, this.props.height)
     );
 
     // if they are the same then return
