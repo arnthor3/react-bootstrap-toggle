@@ -73,8 +73,11 @@ on|string/html|"On"|Text of the on toggle
 off|string/html|"Off"|Text of the off toggle
 size|string|*null*|Size of the toggle. Possible values are `lg`, `sm`, `xs`.
 onstyle|string|"primary"|Style of the on toggle. Possible values are `default`, `primary`, `success`, `info`, `warning`, `danger`
+onstyleClassName|string|"primary"| additional classname to put on the on button
 offstyle|string|"default"|Style of the off toggle. Possible values are `default`, `primary`, `success`, `info`, `warning`, `danger`
+offstyleClassName|string|"primary"| additional classname to put on the off button
 handlestyle|string|"default"|Style of the handle. Possible values are `default`, `primary`, `success`, `info`, `warning`, `danger`
+handlestyleClassName|string|"primary"| additional classname to put on the handle button
 width|integer|*null*|Sets the width of the toggle. if set to *null*, width will be responsive.
 height|integer|*null*|Sets the height of the toggle. if set to *null*, height will be responsive.
 style|object|*null*|If you want to add additional style to the root div
