@@ -14,15 +14,15 @@ export default class ReactBootstrapToggle extends Component {
     // Holds the className for label one
     onstyle: PropTypes.string,
     // additional className for the on component
-    onstyleClassName: PropTypes.string,
+    onClassName: PropTypes.string,
     // Holds the className for label two
     offstyle: PropTypes.string,
     // additional className for the off component
-    offstyleClassName: PropTypes.string,
+    offClassName: PropTypes.string,
     // The className for the handle
     handlestyle: PropTypes.string,
     // additional className for the handle component
-    handlestyleClassName: PropTypes.string,
+    handleClassName: PropTypes.string,
     // Height prop
     height: eitherStringOrInteger,
     // Width prop
@@ -159,7 +159,7 @@ export default class ReactBootstrapToggle extends Component {
             className={cn(
               'btn toggle-on',
               sizeClass,
-              onstyleClassName, {
+              onClassName, {
                 [`btn-${onstyle}`]: onstyle,
               })}
             disabled={disabled}
@@ -171,7 +171,7 @@ export default class ReactBootstrapToggle extends Component {
             className={cn(
               'btn toggle-off',
               sizeClass,
-              offstyleClassName, {
+              offClassName, {
                 [`btn-${offstyle}`]: offstyle,
               })}
             disabled={disabled}
@@ -183,7 +183,7 @@ export default class ReactBootstrapToggle extends Component {
             className={cn(
               'toggle-handle btn',
               sizeClass,
-              handlestyleClassName, {
+              handleClassName, {
                 [`btn-${handlestyle}`]: handlestyle,
               })}
           />
