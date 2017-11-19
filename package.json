@@ -41,6 +41,8 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.7.1",
     "jest": "^17.0.3",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-test-renderer": "^16.0.0",
     "sinon": "^1.17.6",
@@ -50,7 +52,9 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "prop-types": "^15.5.10",
+    "prop-types": "^15.5.10"
+  },
+  "peerDependencies": {
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   }
