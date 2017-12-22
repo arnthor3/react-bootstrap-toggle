@@ -1,10 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import Toggle from '../src/react-bootstrap-toggle';
 import { Bootstrap2Toggle } from '../src/index';
 import * as util from '../src/utils';
 
+Enzyme.configure({ adapter: new Adapter() });
 describe('<Toggle />', () => {
   it('should know margin of error is one', () => {
     expect(util.compareWithMarginOfError(99, 100)).toBe(true);
