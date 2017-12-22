@@ -6,4 +6,4 @@ after_script:
 - "npm run coverage"
 - "npm install coveralls && cat ./coverage/lcov.info | coveralls"
 env:
-  - REACT=15
+  - REACT=16
