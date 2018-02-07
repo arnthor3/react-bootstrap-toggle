@@ -1,3 +1,13 @@
 node_modules/
 coverage/
 examples/
+/.coveralls.yml
+/.eslintrc
+/.npmignore
+/.travis.yml
+/.babelrc
+/__test__
+/index.html
+/react-bootstrap-toggle-*.tgz
+/src
+/webpack.config.js
