@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-toggle",
-  "version": "2.3",
+  "version": "2.3.0",
   "description": "A React version of the bootstrap-toggle without the JQuery dependency",
   "main": "./dist/index.js",
   "repository": {
