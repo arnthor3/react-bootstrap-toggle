@@ -16,6 +16,7 @@ describe('<Toggle />', () => {
   });
 
   it('should know the resize prop', () => {
+    let spy = sinon.stub(util, 'compareWithMarginOfError').returns(true);
     const wrapper = mount(
       <Toggle
         on="TEST"
@@ -29,7 +30,7 @@ describe('<Toggle />', () => {
     />);
     wrapper.update();
     wrapper.unmount();
-    expect(true).toBe(true);
+    util.compareWithMarginOfError.restore();
   });
 
   it('should render without errors', () => {
@@ -38,7 +39,6 @@ describe('<Toggle />', () => {
       <Toggle
         on={<p>Yes</p>}
         off={<p>No</p>}
-        recalculateOnResize
         size="small"
       />
     );

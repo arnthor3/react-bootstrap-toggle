@@ -74,7 +74,6 @@ export default class ReactBootstrapToggle extends Component {
       return;
     }
     this.setDimensions();
-    console.log(this.props.recalculateOnResize, this.props.on);
     if (this.props.recalculateOnResize) {
       this.resizeObserver = new ResizeObserver((ent, obs) => {
         this.setDimensions();
