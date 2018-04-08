@@ -15,18 +15,37 @@ describe('<Toggle />', () => {
     expect(util.compareWithMarginOfError(96, 100)).toBe(false);
   });
 
+  it('should know the resize prop', () => {
+    const wrapper = mount(
+      <Toggle
+        on="TEST"
+        off="TESTOFF"
+        active={false}
+        className="test"
+        width={100}
+        height={100}
+        size="large"
+        recalculateOnResize
+    />);
+    wrapper.update();
+    wrapper.unmount();
+    expect(true).toBe(true);
+  });
+
   it('should render without errors', () => {
     let spy = sinon.stub(util, 'compareWithMarginOfError').returns(true);
     const wrapper = mount(
       <Toggle
         on={<p>Yes</p>}
         off={<p>No</p>}
+        recalculateOnResize
         size="small"
       />
     );
     wrapper.update();
     util.compareWithMarginOfError.restore();
   });
+
   it('should render plain text', () => {
     let spy = sinon.stub(util, 'compareWithMarginOfError').returns(true);
     document.createRange = () => {
@@ -154,4 +173,5 @@ describe('<Toggle />', () => {
     expect(wrapper4.find('.btn-md').length).toBe(0);
   });
 
+ 
 });

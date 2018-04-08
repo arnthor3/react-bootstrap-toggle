@@ -80,7 +80,9 @@ handlestyle|string|"default"|Style of the handle. Possible values are `default`,
 handleClassName|string|*null*| additional classname to put on the handle button
 width|integer|*null*|Sets the width of the toggle. if set to *null*, width will be responsive.
 height|integer|*null*|Sets the height of the toggle. if set to *null*, height will be responsive.
+disabled|bool|*false*|Render the toggle as disabled
 style|object|*null*|If you want to add additional style to the root div
+recalculateOnResize|bool|*false*| If the toggle should recalculate it's dimensions when visibility or dimensions change
 
 ### onClick
 A callback function that returns the state, the parent node, and the event

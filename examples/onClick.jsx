@@ -29,16 +29,17 @@ class OnClickToggleComponent extends Component {
     return (
       <div className="container">
         <div className="row" style={{ marginTop: '5em' }}>
-          <div className="col-lg-3">
+          <div className="col-lg-3" style={{ display: 'none' }}>
             <Toggle
               width="100%"
+              recalculateOnResize
               onClick={this.onClick}
               active={this.state.active}
               size="lg"
               on={<AwesomeOnNodeWithCoolPetMDIcon />}
               off={<OffNodeWithNoCoolMDIcons />}
-              onstyleClassName="success"
-              offstyleClassName="my_custom_off"
+              onClassName="success"
+              offClassName="my_custom_off"
               handlestyle="default"
             />
           </div>

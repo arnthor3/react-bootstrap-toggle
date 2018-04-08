@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import ResizeObserver from 'resize-observer-polyfill';
 import * as util from './utils';
 
 const eitherStringOrInteger = PropTypes.oneOfType([
@@ -39,6 +40,8 @@ export default class ReactBootstrapToggle extends Component {
     // The onClick event, returns the state as the argument
     onClick: PropTypes.func,
     className: PropTypes.string,
+    // If the toggle should recalculate it's dimensions when visibility or dimensions change
+    recalculateOnResize: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -56,11 +59,13 @@ export default class ReactBootstrapToggle extends Component {
     size: 'normal',
     active: true,
     style: {},
+    recalculateOnResize: false,
   }
 
   constructor() {
     super();
     this.state = { width: null, height: null };
+    this.resizeObserver = null;
     this.onClick = this.onClick.bind(this);
   }
 
@@ -69,6 +74,13 @@ export default class ReactBootstrapToggle extends Component {
       return;
     }
     this.setDimensions();
+    console.log(this.props.recalculateOnResize, this.props.on);
+    if (this.props.recalculateOnResize) {
+      this.resizeObserver = new ResizeObserver((ent, obs) => {
+        this.setDimensions();
+      });
+      this.resizeObserver.observe(this.parent);
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -76,6 +88,13 @@ export default class ReactBootstrapToggle extends Component {
       return;
     }
     this.setDimensions();
+  }
+
+  componentWillUnmount() {
+    // shutdown listener
+    if (this.resizeObserver) {
+      this.resizeObserver.unobserve(this.parent);
+    }
   }
 
   onClick(evt) {
@@ -94,7 +113,7 @@ export default class ReactBootstrapToggle extends Component {
 
     // Check if the sizes are the same with a margin of error of one pixel
     const areAlmostTheSame = (
-      util.compareWithMarginOfError(this.state.width, width, this.props.width,) &&
+      util.compareWithMarginOfError(this.state.width, width, this.props.width) &&
         util.compareWithMarginOfError(this.state.height, height, this.props.height)
     );
 
@@ -133,6 +152,7 @@ export default class ReactBootstrapToggle extends Component {
       disabled,
       width,
       height,
+      recalculateOnResize,
       ...props } = this.props;
 
     const sizeClass = this.getSizeClass();
