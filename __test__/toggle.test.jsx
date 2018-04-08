@@ -6,6 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import Toggle from '../src/react-bootstrap-toggle';
 import { Bootstrap2Toggle } from '../src/index';
 import * as util from '../src/utils';
+import ResizeObserver from 'resize-observer-polyfill';
 
 Enzyme.configure({ adapter: new Adapter() });
 describe('<Toggle />', () => {
@@ -17,17 +18,19 @@ describe('<Toggle />', () => {
 
   it('should know the resize prop', () => {
     let spy = sinon.stub(util, 'compareWithMarginOfError').returns(true);
+    let stub = sinon.createStubInstance(ResizeObserver);
+    ResizeObserverCallBack
+    stub.observe();
     const wrapper = mount(
       <Toggle
         on="TEST"
         off="TESTOFF"
         active={false}
         className="test"
-        width={100}
-        height={100}
-        size="large"
+        size="lg"
         recalculateOnResize
     />);
+    stub
     wrapper.update();
     wrapper.unmount();
     util.compareWithMarginOfError.restore();
@@ -39,7 +42,7 @@ describe('<Toggle />', () => {
       <Toggle
         on={<p>Yes</p>}
         off={<p>No</p>}
-        size="small"
+        size="sm"
       />
     );
     wrapper.update();
@@ -65,7 +68,7 @@ describe('<Toggle />', () => {
       <Toggle
         on="This is a really long text"
         off={<p>No</p>}
-        size="mini"
+        size="xs"
       />
     );
 
