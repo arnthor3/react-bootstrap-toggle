@@ -19,7 +19,7 @@ describe('<Toggle />', () => {
   it('should know the resize prop', () => {
     let spy = sinon.stub(util, 'compareWithMarginOfError').returns(true);
     let stub = sinon.createStubInstance(ResizeObserver);
-    ResizeObserverCallBack
+    
     stub.observe();
     const wrapper = mount(
       <Toggle
