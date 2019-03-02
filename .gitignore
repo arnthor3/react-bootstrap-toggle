@@ -2,3 +2,5 @@ node_modules/
 coverage/
 dist
 /react-bootstrap-toggle-*.tgz
+.DS_Store
+.idea
